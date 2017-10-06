@@ -1,0 +1,33 @@
+table {
+	margin: 100px auto;
+	border-collapse: collapse;
+
+}
+
+td {
+	width: 130px;
+	height: 130px;
+	border: 4px solid black;
+}
+
+.tile {
+	background-image: url("../assets/test.svg");
+	background-position: center;
+}
+
+/* the perimeter borders of the table are removed to give the classic tic tac toe look */
+#tile1, #tile2, #tile3 {
+	border-top: none;
+}
+
+#tile3, #tile6, #tile9 {
+	border-right: none;
+}
+
+#tile7, #tile8, #tile9 {
+	border-bottom: none;
+}
+
+#tile1, #tile4, #tile7 {
+	border-left: none;
+}
