@@ -32,7 +32,7 @@ for (var i=1; i<10; i++) {
 }
 
 function checkRow() {
-	count = 0;
+	var count = 0;
 	for (var i=0; i<3; i++) {
 	if (document.getElementsByClassName("row1")[i].style.backgroundPositionY === "0%"){
 	count++;
@@ -41,6 +41,31 @@ function checkRow() {
 	if (count===3) {
 		for (var i=0; i<3; i++) {
 		document.getElementsByClassName("row1")[i].style.backgroundColor = "pink";
+		makeAllUnclickable();
+		}
+	}
+	count = 0;
+	for (var i=0; i<3; i++) {
+	if (document.getElementsByClassName("row2")[i].style.backgroundPositionY === "0%"){
+	count++;
+	}
+	}
+	if (count===3) {
+		for (var i=0; i<3; i++) {
+		document.getElementsByClassName("row2")[i].style.backgroundColor = "pink";
+		makeAllUnclickable();
+		}
+	}
+	count = 0;
+	for (var i=0; i<3; i++) {
+	if (document.getElementsByClassName("row3")[i].style.backgroundPositionY === "0%"){
+	count++;
+	}
+	}
+	if (count===3) {
+		for (var i=0; i<3; i++) {
+		document.getElementsByClassName("row3")[i].style.backgroundColor = "pink";
+		makeAllUnclickable();
 		}
 	}
 }
