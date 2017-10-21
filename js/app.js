@@ -1,6 +1,25 @@
 
 document.addEventListener("DOMContentLoaded", function(event){
 
+function computerPlays () {
+	var tileList=[];
+	for (var i=1; i<10; i++){ 
+		if (document.getElementById("tile"+i).style.backgroundPositionY === "") {
+			tileList.push(i);
+		}
+	}
+	var randomTile = tileList[Math.floor(Math.random()*tileList.length)];
+	var pickedTile = document.getElementById("tile"+randomTile);
+	pickedTile.style.backgroundPositionY="100%";
+	pickedTile.removeEventListener('click', changeTile);
+	checkRows("100%");
+	checkCols("100%");
+	checkCross("100%");
+	turn = "X";
+}
+
+
+
 var turn = "X";
 
 makeAllClickable();
@@ -13,15 +32,16 @@ function changeTile() {
 		checkCross("0%");
 		turn = "O";
 		this.removeEventListener('click', changeTile);
+		computerPlays();
 	}
-	else {
-		this.style.backgroundPositionY = "bottom";
-		checkRows("100%");
-		checkCols("100%");
-		checkCross("100%");
-		turn = "X";
-		this.removeEventListener('click', changeTile);
-	}
+	// else {
+	// 	this.style.backgroundPositionY = "bottom";
+	// 	checkRows("100%");
+	// 	checkCols("100%");
+	// 	checkCross("100%");
+	// 	turn = "X";
+	// 	this.removeEventListener('click', changeTile);
+	// }
 }
 
 function makeAllClickable(){
@@ -147,8 +167,6 @@ function resetTiles() {
 	document.getElementById("tile"+i).style.backgroundColor = "";
 	} 
 }
-
-
 
 document.getElementsByTagName("button")[0].addEventListener('click', function(){
 	resetTiles();
